@@ -9,7 +9,7 @@ import TopCategory from "../components/TopCategory";
 export default function TopCategories() {
   return (
     <div>
-      <h2 className="text-5xl text-center mt-5">Top Categories</h2>
+      <h2 className="font-medium text-4xl text-center py-5">Top Categories</h2>
       <div className="flex container mx-auto justify-between my-10">
         <TopCategory icon={jacket} category="Jackets" />
         <TopCategory icon={handbag} category="Handbags" />

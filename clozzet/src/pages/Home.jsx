@@ -1,8 +1,9 @@
 import Nav from "../components/Nav";
 import Hero from "../components/Hero";
 import TopCategories from "../components/TopCategories";
-import Collections from "../components/Collections";
 import Footer from "../components/Footer";
+import Category from "../components/FeaturedCategories";
+import FeaturedCollections from "../components/FeaturedCollections";
 export default function Home() {
   return (
     <div>
@@ -11,7 +12,8 @@ export default function Home() {
         <Hero />
       </div>
       <TopCategories />
-      <Collections/>
+      <FeaturedCollections />
+      <Category />
       <Footer />
     </div>
   );

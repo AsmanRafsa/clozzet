@@ -1,9 +1,10 @@
 import Logo from "../assets/images/logo.svg";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 // import { FaBars } from "react-icons/fa";
 // import { AiOutlineShoppingCart } from "react-icon/ai";
 export default function Nav() {
   return (
-    <div className="container mx-auto flex justify-between">
+    <div className="container mx-auto flex justify-between text-2xl">
       <div>
         <ul className="flex justify-between items-center gap-8 py-4">
           <li>
@@ -23,7 +24,7 @@ export default function Nav() {
       <div>
         <ul className="flex gap-8 justify-between items-center py-4">
           <li>
-            {/* <AiOutlineShoppingCart size={25} /> */}
+            <AiOutlineShoppingCart size={25} />
           </li>
           <li>
             <a href="">Sign Up</a>
