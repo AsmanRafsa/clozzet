@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // import { AiOutlineSearch } from "react-icon/ai";
 export default function Hero() {
   return (
@@ -14,9 +16,9 @@ export default function Hero() {
           beautiful.True style never dies.
         </p>
         <div className="flex gap-10 mt-3">
-          <button className="bg-[#45C9A1] text-white text-2xl rounded-full my-1 p-5 shadow-lg py-4 px[6em]">
+         <Link to="/shop"> <button className="bg-[#45C9A1] text-white text-2xl rounded-full my-1 p-5 shadow-lg py-4 px[6em]">
             Shop Now
-          </button>
+          </button></Link>
           <button className=" bg-white text-[#45C9A1] text-2xl rounded-full p-5 shadow-lg py-4 px[6em]">
             About Us
           </button>

@@ -3,12 +3,12 @@ import Footer from "../components/Footer";
 import Search from "../components/Search";
 import MainDisplay from "../components/MainDisplay";
 import Divs from "../components/Divs";
-export default function Shop() {
+export default function Shop({cart,setCart}) {
   return (
     <div>
-      <Nav />;
+      <Nav cart={cart} setCart={setCart}/>;
       <Search />
-      <MainDisplay />
+      <MainDisplay cart={cart} setCart={setCart}/>
       <Footer />
       <Divs />
     </div>

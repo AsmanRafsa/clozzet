@@ -1,7 +1,7 @@
 import Main from "./Main";
-export default function MainDisplay() {
+export default function MainDisplay({cart,setCart}) {
   return (
-      <Main />
+      <Main cart={cart} setCart={setCart}/>
     
   );
 }

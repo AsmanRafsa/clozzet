@@ -1,11 +1,9 @@
-import Cart from "./pages/Cart";
+import Router from "./components/Router";
+import { useState } from "react";
 
-// import SPHero from "./components/SPHero";
 export default function App() {
-  return( 
-    // <SPHero />;
-    <Cart />
-
-    )
-  
+  const [cart, setCart] = useState([]);
+  return (
+  <Router cart={cart} setCart={setCart}/>
+  );
 }

@@ -6,7 +6,7 @@ import Instagram from "../assets/images/instagram.png";
 import Twitter from "../assets/images/twitter.png";
 export default function Footer() {
   return (
-    <div className="bg-[#F0EFEF] mt-20">
+    <div className="bg-[#F0EFEF]">
       <div className="container mx-auto">
         <div className="flex flex-col items-center py-10 ">
           <h3>Subscribe & get up to 30% OFF</h3>
