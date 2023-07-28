@@ -1,13 +1,14 @@
 import Logo from "../assets/images/logo.svg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-
-export default function Nav({ cart, setCart }) {
+import { useEffect, useContext } from "react";
+import { StateContext } from "../context/state";
+export default function Nav() {
+  const { cart, setCart } = useContext(StateContext);
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem("cart"));
     cartItems && setCart(cartItems);
-    console.log(cartItems);
+    // console.log(cartItems);
   }, []);
   return (
     <div className="container mx-auto flex justify-between text-2xl">

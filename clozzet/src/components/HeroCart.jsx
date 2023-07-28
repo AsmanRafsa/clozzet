@@ -1,5 +1,24 @@
-import React from "react";
-export default function HeroCart({ cart, setCart }) {
+import React, { useContext, useState } from "react";
+import { useEffect } from "react";
+import { products } from "../data";
+import { StateContext } from "../context/state";
+export default function HeroCart() {
+  const { cart, setCart } = useContext(StateContext);
+
+  const [copyCart, setCopyCart] = useState([]);
+  useEffect(() => {
+    setCopyCart(cart);
+  }, []);
+  function manageCart(action, product) {
+    if (action === "add") {
+      setCopyCart((prev) => [...prev, product]);
+    } else if (action === "remove") {
+      const copyCartarray = [...copyCart];
+      const productIndex = copyCartarray.indexOf(product);
+      copyCartarray.splice(productIndex, 1);
+      setCopyCart(copyCartarray);
+    }
+  }
   return (
     <div>
       <div className="container mx-auto  w-[100%]  my-12 flex justify-between gap-5">
@@ -27,25 +46,44 @@ export default function HeroCart({ cart, setCart }) {
                     </div>
                   </div>
                   <div className="flex items-center justify-center border-2 border-gray-500 w-[30%]">
-                    <div className=" flex-1 ">
-                      <p className="text-3xl font-bold p-5  border-gray-500 text-center">
+                    <button
+                      className=" flex-1"
+                      onClick={() => manageCart("remove")}
+                      disabled={
+                        copyCart.filter((element) => element.name === item.name)
+                          .length === 1
+                          ? true
+                          : false
+                      }
+                    >
+                      <p className="text-3xl font-bold p-4  border-gray-500 text-center">
                         -
                       </p>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-3xl font-bold  border-gray-500 p-5 border-x-2 text-center">
-                        1
+                    </button>
+                    <button className="flex-1">
+                      <p className="text-3xl font-bold  border-gray-500 p-4 border-x-2 text-center">
+                        {
+                          copyCart.filter(
+                            (cartItem) => cartItem.name === item.name
+                          ).length
+                        }
                       </p>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-3xl font-bold  border-gray-500 p-5 text-center">
+                    </button>
+                    <button
+                      className="flex-1"
+                      onClick={() => manageCart("add", item)}
+                    >
+                      <p className="text-3xl font-bold  border-gray-500 p-4 text-center">
                         +
                       </p>
-                    </div>
+                    </button>
                   </div>
                   <div className="w-[30%]">
                     <p className="font-bold text-3xl text-center">
-                      {item.price}
+                      {`Ksh.${copyCart
+                        .filter((element) => element.name === item.name)
+                        .reduce((acc, curr) => acc + curr.price, 0)
+                        .toLocaleString()}`}
                     </p>
                   </div>
                 </div>
@@ -53,7 +91,7 @@ export default function HeroCart({ cart, setCart }) {
             );
           })}
         </div>
-        <div className=" mt-10 bg-gray-400 shadow-xl ">
+        <div className=" w-[40%] h-[35%] bg-gray-300 shadow rounded-[5px]">
           <div className="text-center text-3xl">
             <h4 className="font-bold mt-[1.5em]">Cart Summary</h4>
             <p className="mt-[1.5em]">Have a promo code? Apply here</p>
@@ -76,15 +114,20 @@ export default function HeroCart({ cart, setCart }) {
             <div className="m-[1em] text-3xl">
               <div className=" flex justify-between  ">
                 <h4>Subtotal</h4>
-                <p>KSh 16,000</p>
+                {/* <p>KSh 16,000</p> */}
+                {`Ksh ${copyCart
+                  .reduce((acc, curr) => acc + curr.price, 0)
+                  .toLocaleString()}`}
               </div>
               <div className=" flex justify-between ">
                 <h4>Delivery Fee</h4>
                 <p>KSh 450</p>
               </div>
-              <div className=" flex justify-between border-b-2">
+              <div className=" flex justify-between border-t-2 border-gray-400 m-3">
                 <h4>Total</h4>
-                <p className="">KSh 16,450</p>
+                {`Ksh ${copyCart
+                  .reduce((acc, curr) => acc + curr.price, 0 + 450)
+                  .toLocaleString()}`}
               </div>
             </div>
             <div className="flex justify-center">

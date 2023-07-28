@@ -2,8 +2,12 @@ import { products } from "../data";
 import { AiOutlineLeft } from "react-icons/ai";
 import { AiOutlineRight } from "react-icons/ai";
 import { addToCart, addToCartText } from "../helpers";
+import { StateContext } from "../context/state";
+import { useContext } from "react";
 
-export default function FeaturedCollection({ cart, setCart }) {
+export default function FeaturedCollection() {
+  const { cart, setCart } = useContext(StateContext);
+
   return (
     <div
       className="container mx-auto flex flex-row my-[100px] gap-5 justify-center items-center
@@ -27,7 +31,7 @@ export default function FeaturedCollection({ cart, setCart }) {
                   type="submit"
                   className=" text-white bg-[#45C9A1] btn invisible group-hover:visible rounded-[5px] p-5 py-5 absolute bottom-2 left-0 w-[95%] m-2 px[6em]"
                 >
-                  {addToCartText(cart,item)}
+                  {addToCartText(cart, item)}
                 </button>
               </div>
               <div className="text-2xl">

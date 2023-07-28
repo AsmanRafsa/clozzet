@@ -1,9 +1,10 @@
 import Router from "./components/Router";
-import { useState } from "react";
-
+import { useState,useContext } from "react";
+import StateProvider from "./context/state";
 export default function App() {
-  const [cart, setCart] = useState([]);
   return (
-  <Router cart={cart} setCart={setCart}/>
+    <StateProvider>
+      <Router/>
+    </StateProvider>
   );
 }

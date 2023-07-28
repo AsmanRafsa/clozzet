@@ -19,9 +19,9 @@ export default function Hero() {
          <Link to="/shop"> <button className="bg-[#45C9A1] text-white text-2xl rounded-full my-1 p-5 shadow-lg py-4 px[6em]">
             Shop Now
           </button></Link>
-          <button className=" bg-white text-[#45C9A1] text-2xl rounded-full p-5 shadow-lg py-4 px[6em]">
+         <Link to="/aboutus"><button className=" bg-white text-[#45C9A1] text-2xl rounded-full p-5 shadow-lg py-4 px[6em]">
             About Us
-          </button>
+          </button></Link> 
         </div>
         <div className="border-2 rounded-full mt-6 flex justify-start items-center p-3">
           {/* <AiOutlineSearch size={50} /> */}

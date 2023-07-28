@@ -7,18 +7,21 @@ import NotFound from "../pages/NotFound";
 import LogIn from "../pages/LogIn";
 import SignUp from "../pages/SignUp";
 import AboutUs from "../pages/AboutUs";
+import ProductsNew from "../pages/ProductsNew";
 export default function Router({ cart, setCart }) {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home cart={cart} setCart={setCart} />} />
-        <Route path="/cart" element={<Cart cart={cart} setCart={setCart}/>} />
-        <Route path="/shop" element={<Shop cart={cart} setCart={setCart}/>} />
-        <Route path="/login" element={<LogIn cart={cart} setCart={setCart}/>} />
-        <Route path="/register" element={<SignUp cart={cart} setCart={setCart}/>} />
-        <Route path="/aboutus" element={<AboutUs cart={cart} setCart={setCart}/>} />
-        <Route path="/product/:productId" element={<SingleProduct cart={cart} setCart={setCart}/>} />
-        <Route path="*" element={<NotFound cart={cart} setCart={setCart}/>} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/cart" element={<Cart/>} />
+        <Route path="/shop" element={<Shop/>} />
+        <Route path="/login" element={<LogIn/>} />
+        <Route path="/register" element={<SignUp/>} />
+        <Route path="/products" element={<ProductsNew/>} />
+
+        <Route path="/aboutus" element={<AboutUs/>} />
+        <Route path="/product/:productId" element={<SingleProduct/>} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
     </BrowserRouter>
   );

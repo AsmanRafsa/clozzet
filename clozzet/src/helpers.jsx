@@ -7,7 +7,13 @@ export function addToCart(e, product, cart, setCart) {
   }
 }
 export function addToCartText(cart, item) {
+  // const { cart, setCart } = useContext(StateContext);
+
  return cart.some((cartItem) => cartItem.name === item.name)
     ? "ADDED TO CART"
     : "ADD TO CART";
 }
+export function storeItem(){
+  
+}
+

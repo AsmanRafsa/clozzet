@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { products } from "../data";
 import { addToCartText,addToCart} from "../helpers";
-export default function Main({ cart, setCart }) {
+import { StateContext } from "../context/state";
+export default function Main() {
+const {cart,setCart}=useContext(StateContext)
   return (
+
     <div
       className="container mx-auto flex flex-row my-[100px] gap-7 justify-center items-center flex-wrap
         "

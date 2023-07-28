@@ -2,16 +2,19 @@ import Footer from "../components/Footer";
 import HeroCart from "../components/HeroCart";
 import Nav from "../components/Nav";
 import EmptyCart from "../components/EmptyCart";
-export default function Cart({ cart, setCart }) {
+import { useContext } from "react";
+import { StateContext } from "../context/state";
+export default function Cart() {
+  const{cart,setCart}=useContext(StateContext)
   return (
-    <div>
-      <Nav cart={cart} setCart={setCart} />
+    <div className="flex flex-col">
+      <Nav className="flex-1" />
       {cart.length === 0 ? (
-        <EmptyCart />
+        <EmptyCart className="flex-1" />
       ) : (
-        <HeroCart cart={cart} setCart={setCart} />
+        <HeroCart className="flex-1" />
       )}
-      <Footer />
+      <Footer className="flex-1" />
     </div>
   );
 }
