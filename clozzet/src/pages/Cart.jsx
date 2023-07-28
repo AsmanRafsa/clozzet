@@ -5,7 +5,7 @@ import EmptyCart from "../components/EmptyCart";
 import { useContext } from "react";
 import { StateContext } from "../context/state";
 export default function Cart() {
-  const{cart,setCart}=useContext(StateContext)
+  const { cart, setCart } = useContext(StateContext);
   return (
     <div className="flex flex-col">
       <Nav className="flex-1" />
